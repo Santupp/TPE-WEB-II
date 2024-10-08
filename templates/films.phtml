@@ -1,9 +1,13 @@
 <?php require 'layout/header.phtml' ?>
-<?php require 'layout/footer.phtml' ?>
+<?php //require '/layout/footer.phtml' ?>
 
 
+<h1>Films</h1>
 <ul>
-    <li>
-        <?= peliculas[0]->title ?>
-    </li>
+    <?php foreach($films as $film): ?>
+        <li>
+            <?=  $film -> nombre ?>
+        </li>
+    <?php endforeach ?>
+
 </ul>

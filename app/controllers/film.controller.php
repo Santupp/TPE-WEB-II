@@ -1,4 +1,6 @@
 <?php
+require_once 'app/models/film.model.php';
+require_once 'app/views/film.view.php';
 class FilmController
 {
     private $model;
