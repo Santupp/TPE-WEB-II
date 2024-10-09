@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Película</title>
+</head>
+<body>
+<h1>Agregar Película</h1>
+<form action="agregarPelicula" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" required><br><br>
+
+    <label for="estreno">Año:</label>
+    <input type="date" name="estreno" id="estreno" required><br><br>
+
+    <label for="genero">Género:</label>
+    <input type="text" name="genero" id="genero" required><br><br>
+
+    <input type="submit" value="Agregar Película">
+</form>
+
+
+<?php if (isset($_GET['mensaje'])): ?>
+    <p><?php echo htmlspecialchars($_GET['mensaje']); ?></p>
+<?php endif; ?>
+
+<script src="../javascript/script.js"></script>
+</body>
+</html>
+

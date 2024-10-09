@@ -17,6 +17,31 @@ class FilmController
         $films = $this->model->getFilms();
         $this->view->showFilms($films);
     }
+
+    public function addFilms() {
+        $view = new FilmView(); // Instancia de la vista
+        $view->addFilm(); // Llamar a la vista que contiene el formulario
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Procesar los datos del formulario
+            $nombre= $_POST['nombre'];
+            $estreno = $_POST['estreno'];
+            $genero = $_POST['genero'];
+
+            // Intentar agregar la película a la base de datos
+            $resultado = $this->model->addFilm($nombre, $estreno, $genero);
+
+            // Redirigir dependiendo del resultado
+            if ($resultado) {
+                header('Location: ' . BASE_URL . 'peliculas?mensaje=Película agregada con éxito');
+            } else {
+                header('Location: ' . BASE_URL . 'agregarPelicula?mensaje=Error al agregar la película');
+            }
+        }
+
+
+    }
+
+
     public function showFilm($id)
     {
         $film = $this->model->getFilm($id);

@@ -60,6 +60,11 @@ switch ($params[0]) {
     case 'logout':
         $controller = new AuthController();
         $controller->logout();
+    case 'agregarPelicula':
+        sessionAuthMiddleware($res);
+        $controller = new FilmController();
+        $controller->addFilms();
+        break;
     default:
         echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto
         break;

@@ -14,6 +14,10 @@ class FilmView
     {
         require 'templates/genres.phtml';
     }
+    public function addFilm()
+    {
+        require 'templates/addFilms.phtml';
+    }
 
     public function showHome()
     {
