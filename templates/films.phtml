@@ -9,5 +9,10 @@
             <?=  $film -> nombre ?>
         </li>
     <?php endforeach ?>
+    <?php
+    $password = 'admin'; // The plain text password
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
+    echo $hashedPassword;
+    ?>
 </ul>
