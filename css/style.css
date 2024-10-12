@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap'); /* Keyframe for ul li a animation */
+/* Fonts */
+.source-sans-3
+{
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+@keyframes border-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+
+
+
+
+body{
+    color: #F2F1E8;
+
+    background-color: #201d1c;
+}
+h1{
+    margin: 0;
+}
+.title{
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 400;
+    font-family: "Bebas Neue", sans-serif;
+    color: #F2F1E8;
+    margin: 0;
+    padding: 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #F2F1E8;
+    margin-bottom: 1em;
+}
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+}
+nav ul li {
+    margin: 0 10px;
+}
+nav ul li a {
+    font-family: "Rufina", sans-serif;
+
+    text-decoration: none;
+    color: #F2F1E8;
+    font-size: 1.2em;
+    font-weight: 400;
+    position: relative;
+
+}
+nav ul li a:hover {
+    color: #828281;
+}
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #F2F1E8;
+    transition: width 0.3s ease-in-out;
+}
+nav ul li a:hover::after {
+    width: 100%;
+}
+.title:hover {
+    color: #666;
+}
+
+/* Login */
+label{
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #F2F1E8;
+
+}
+.form-group{
+    margin: 0.5em 0;
+}
+
+button{
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #F2F1E8;
+    background-color: #828281;
+    border: 1px solid #F2F1E8;
+    border-radius: 10px;
+    padding: 1px 10px;
+    cursor: pointer;
+
+}
+button:hover{
+    background-color: #666;
+    border-color: #5a5858;
+
+}
+input[type="text"], input[type="password"]{
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #F2F1E8;
+    background-color: #201d1c;
+    border: 1px solid #F2F1E8;
+    border-radius: 10px;
+    padding: 1px 10px;
+}
+/* Style for autocomplete dropdown, the style was being changed when autocomplete appeared  */
+input[type="text"]:-webkit-autofill,
+input[type="password"]:-webkit-autofill {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #F2F1E8;
+    background-color: #201d1c !important;
+    border: 1px solid #F2F1E8;
+    border-radius: 10px;
+    padding: 1px 10px;
+    -webkit-box-shadow: 0 0 0 30px #201d1c inset !important;
+    -webkit-text-fill-color: #F2F1E8 !important;
+}
