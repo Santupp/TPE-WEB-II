@@ -1,8 +1,26 @@
 <?php require 'layout/header.phtml' ?>
 <?php //require '/layout/footer.phtml' ?>
 
+<?php
+    // foerach element of session
+    foreach ($_SESSION as $key => $value) {
+        echo $key . ' => ' . $value . '<br>';
+    }
+?>
 
-<h1>Films</h1>
+<h1>
+    <?php
+        if (isset($_SESSION['USERNAME_USER'])&& !empty (($_SESSION['USERNAME_USER']))) {
+            echo 'Bienvenido ' . $_SESSION['USERNAME_USER'];
+        }
+        elseif (isset($_SESSION['EMAIL_USER']) && !empty (($_SESSION['EMAIL_USER']))) {
+
+            echo 'Bienvenido ' . $_SESSION['EMAIL_USER'];
+        }
+
+
+    ?>
+</h1>
 <ul>
     <?php foreach($films as $film): ?>
 
