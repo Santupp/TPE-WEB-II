@@ -12,6 +12,11 @@ class AuthController {
     }
 
     public function showLogin() {
+        session_start();
+        if (isset($_SESSION['ID_USER'])) {
+            header('Location: ' . BASE_URL);
+            die();
+        }
         // Muestro el formulario de login
         return $this->view->showLogin();
     }

@@ -40,14 +40,7 @@ switch ($params[0]) {
     case 'eliminar':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res); // Verifica que el usuario esté logueado o redirige a login
-        $controller = new TaskController($res);
-        $controller->deleteTask($params[1]);
-        break;
-    case 'finalizar':
-        sessionAuthMiddleware($res);
-        verifyAuthMiddleware($res); // Verifica que el usuario esté logueado o redirige a login
-        $controller = new TaskController($res);
-        $controller->finishTask($params[1]);
+
         break;
     case 'showLogin':
         $controller = new AuthController();
@@ -60,6 +53,7 @@ switch ($params[0]) {
     case 'logout':
         $controller = new AuthController();
         $controller->logout();
+        break;
     case 'agregarPelicula':
         sessionAuthMiddleware($res);
         $controller = new FilmController();
