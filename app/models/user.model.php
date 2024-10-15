@@ -1,23 +1,21 @@
+
 <?php
-
+require_once 'config.db.php';
 class UserModel {
-    private $db;
+    private $config;
 
-    public function __construct() {
-       $this->db = new PDO('mysql:host=localhost;dbname=tpe;charset=utf8', 'root', '');
+    public function __construct()
+    {
+
+    $this->config = new ConfigModel();
     }
- 
-    public function getUserByEmail($email) {    
-        $query = $this->db->prepare("SELECT * FROM usuario WHERE email = ?");
-        $query->execute([$email]);
-    
-        $user = $query->fetch(PDO::FETCH_OBJ);
-    
-        return $user;
+
+    public function getUserByEmail($email)
+    {
+    return $this->config->getUserByEmail($email); // Delegate query to ConfigModel
     }
-    public function getUserByUsername($username) {
-        $query = $this->db->prepare('SELECT * FROM usuario WHERE username = ?');
-        $query->execute([$username]);
-        return $query->fetch(PDO::FETCH_OBJ);
+    public function getUserByUsername($username)
+    {
+    return $this->config->getUserByUsername($username); // Delegate query to ConfigModel
     }
 }
