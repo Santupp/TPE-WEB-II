@@ -96,7 +96,7 @@ label{
     margin: 0.5em 0;
 }
 
-button{
+button, input{
     font-family: "Source Sans 3", sans-serif;
     font-size: 1.2em;
     font-weight: 400;

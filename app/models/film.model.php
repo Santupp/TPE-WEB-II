@@ -2,12 +2,7 @@
 require_once 'config.db.php';
 class FilmModel extends ConfigModel
 {
-//    private $db;
-//    public function __construct()
-//    {
-//            $this->db = new PDO('mysql:host=localhost;dbname=tpe;charset=utf8', 'root', '');
-//
-//    }
+
 
     public function getFilms()
     {

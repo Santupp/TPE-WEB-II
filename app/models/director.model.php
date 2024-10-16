@@ -9,14 +9,14 @@ class directorModel
     }
 
     function getDirectors() {
-        $query = $this->db->prepare('SELECT * FROM directores');
+        $query = $this->db->prepare('SELECT * FROM director');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
 
     function insertDirector($nombre) {
-        $query = $this->db->prepare('INSERT INTO directores (nombre) VALUES (?)');
+        $query = $this->db->prepare('INSERT INTO director (nombre) VALUES (?)');
         $query->execute([$nombre]);
 
         $id = $this->db->lastInsertId();
@@ -24,7 +24,7 @@ class directorModel
         return $id;
     }
     public function deleteDirector($id) {
-        $query = $this->db->prepare('DELETE FROM directores WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM director WHERE id = ?');
         $query->execute([$id]);
     }
 

@@ -4,7 +4,7 @@ require_once 'app/middlewares/session.auth.middleware.php';
 require_once 'app/controllers/film.controller.php';
 //require_once 'app/middlewares/verify.auth.middleware.php';
 require_once 'app/controllers/auth.controller.php';
-
+require_once 'app/controllers/director.controller.php';
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -15,14 +15,12 @@ if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// tabla de ruteo
-
-// listar  -> TaskController->showTask();
-// nueva  -> TaskController->addTask();
-// eliminar/:ID  -> TaskController->deleteTask($id);
-// finalizar/:ID -> TaskController->finishTask($id);
-// ver/:ID -> TaskController->view($id); COMPLETAR
-
+// Tabla de ruteo
+// peliculas -> filmController->showFilms();
+// showLogin -> authController->showLogin();
+// login -> authController->login();
+// logout -> authController->logout();
+// agregarPelicula -> filmController->addFilms();
 // verDirectores  -> directorController->showDirectores();
 // verPeliculasDirector  -> filmController->showFilmsByDirector($directorId);
 // agregarDirector  -> directorController->addDirector;
@@ -35,17 +33,6 @@ switch ($params[0]) {
         sessionAuthMiddleware($res);
         $controller = new FilmController();
         $controller->showFilms();
-        break;
-    case 'nueva':
-        sessionAuthMiddleware($res); // Setea $res->user si existe session
-        verifyAuthMiddleware($res); // Verifica que el usuario esté logueado o redirige a login
-        $controller = new TaskController($res);
-        $controller->addTask();
-        break;
-    case 'eliminar':
-        sessionAuthMiddleware($res);
-        verifyAuthMiddleware($res); // Verifica que el usuario esté logueado o redirige a login
-
         break;
     case 'showLogin':
         $controller = new AuthController();
