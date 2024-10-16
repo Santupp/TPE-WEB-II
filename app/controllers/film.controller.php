@@ -58,13 +58,4 @@ class FilmController
         $this->view->showGenre($genre);
     }
 
-    function showFilmsByDirector($directorID) {
-        $director = $this->model->getDirectorById($directorID);
-        if (!$director) {
-            $this->view->showError("Director no es valido.");
-            return;
-        }
-        $peliculas = $this->model->getFilmsByDirector($directorID);
-        $this->view->showFilmsByDirector($peliculas, $director);
-    }
 }

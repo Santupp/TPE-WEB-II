@@ -32,16 +32,4 @@ class FilmModel extends ConfigModel
         }
     }
 
-    function getFilmsByDirector($directorID) {
-        $query = $this->db->prepare('SELECT * FROM peliculas WHERE id_director = ?');
-        $query->execute([$directorID]);
-        return $query->fetchAll(PDO::FETCH_OBJ);
-    }
-
-    function getDirectorById($directorID) {
-        $query = $this->db->prepare('SELECT * FROM directores WHERE id = ?');
-        $query->execute([$directorID]);
-        return $query->fetch(PDO::FETCH_OBJ);
-    }
-
 }

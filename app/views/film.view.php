@@ -24,22 +24,5 @@ class FilmView
         require 'templates/home.phtml';
     }
 
-    public function showFilmsByDirector($peliculas, $director) {
-        echo "<h1> Peliculas de " . $director->nombre . " </h1>";
-        echo "<table border='1'>";
-        echo "<tr><th>ID</th><th>Título</th><th>Género</th></tr>";
-        foreach ($peliculas as $pelicula) {
-            echo "<tr>";
-            echo "<td>" . $pelicula->id . "</td>";
-            echo "<td>" . $pelicula->nombre . "</td>";
-            echo "<td>" . $pelicula->genero . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-    }
-
-    function showError($error) {
-        echo "<h2>Error: $error</h2>";
-    }
 
 }
