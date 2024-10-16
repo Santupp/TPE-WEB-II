@@ -23,6 +23,11 @@ if (!empty( $_GET['action'])) {
 // finalizar/:ID -> TaskController->finishTask($id);
 // ver/:ID -> TaskController->view($id); COMPLETAR
 
+// verDirectores  -> directorController->showDirectores();
+// verPeliculasDirector  -> filmController->showFilmsByDirector($directorId);
+// agregarDirector  -> directorController->addDirector;
+// eliminarDirector/:ID -> deleteDirector($id)
+
 // parsea la accion para separar accion real de parametros
 $params = explode('/', $action);
 switch ($params[0]) {
@@ -59,6 +64,30 @@ switch ($params[0]) {
         $controller = new FilmController();
         $controller->addFilms();
         break;
+        case 'verDirectores':
+            $controller = new directorController();
+            $controller->showDirectors();
+            break;
+        case 'verPeliculasDirector':
+            if (isset($params[1])) {
+                $controller = new filmController();
+                $controller->showFilmsByDirector($params[1]); // Usar el segundo parámetro como el ID del director
+            } else {
+                //falta controlar error
+            }
+            break;
+        case 'agregarDirector':
+            $controller = new directorController();
+            $controller->addDirector();
+            break;
+        case 'eliminarDirector':
+            if (isset($params[1])) {
+                $controller = new directorController();
+                $controller->deleteDirector($params[1]);
+            } else {
+                //falta controlar error
+            }
+            break;
     default:
         echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto
         break;
