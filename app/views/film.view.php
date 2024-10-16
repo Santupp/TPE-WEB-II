@@ -25,7 +25,17 @@ class FilmView
     }
 
     public function showFilmsByDirector($peliculas, $director) {
-        include_once 'templates/films.by.director.phtml';
+        echo "<h1> Peliculas de " . $director->nombre . " </h1>";
+        echo "<table border='1'>";
+        echo "<tr><th>ID</th><th>Título</th><th>Género</th></tr>";
+        foreach ($peliculas as $pelicula) {
+            echo "<tr>";
+            echo "<td>" . $pelicula->id . "</td>";
+            echo "<td>" . $pelicula->nombre . "</td>";
+            echo "<td>" . $pelicula->genero . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
     }
 
     function showError($error) {
