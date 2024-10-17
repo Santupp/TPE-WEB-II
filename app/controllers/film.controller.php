@@ -62,7 +62,7 @@ class FilmController
     }
 
     function showFilmsByDirector($directorID) {
-        $director = $this->model->getDirectorById($directorID);
+        $director = $this->model->getDirectorNameById($directorID);
         if (!$director) {
             $this->view->showError("Director no es valido.");
             return;

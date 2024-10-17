@@ -61,7 +61,6 @@ switch ($params[0]) {
         $controller->showDirectors();
         break;
     case 'verPeliculasDirector':
-        sessionAuthMiddleware($res);
         if (isset($params[1])) {
             $controller = new filmController();
             $controller->showFilmsByDirector($params[1]); // Usar el segundo parámetro como el ID del director
