@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +21,8 @@
 </head>
 
 <body>
+
+
 <header>
     <nav>
         <h1>
@@ -31,9 +38,21 @@
             <li>
                 <a href="<?= BASE_URL . '/verDirectores' ?>">Directores</a>
             </li>
-            <li>
-                <a href="<?= BASE_URL . '/logout' ?>">Logout</a>
-            </li>
+            <?php if (isset($_SESSION['ID_USER'])): ?>
+                <li>
+                    <a href="<?= BASE_URL . '/logout' ?>">Logout</a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="<?= BASE_URL . '/showLogin' ?>">Login</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </nav>
 </header>
+<?php
+// foerach element of session
+foreach ($_SESSION as $key => $value) {
+    echo $key . ' => ' . $value . '<br>';
+}
+?>

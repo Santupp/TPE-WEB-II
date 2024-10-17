@@ -30,7 +30,6 @@ if (!empty( $_GET['action'])) {
 $params = explode('/', $action);
 switch ($params[0]) {
     case 'peliculas':
-        sessionAuthMiddleware($res);
         $controller = new FilmController();
         $controller->showFilms();
         break;
@@ -56,6 +55,7 @@ switch ($params[0]) {
             $controller->showDirectors();
             break;
         case 'verPeliculasDirector':
+            sessionAuthMiddleware($res);
             if (isset($params[1])) {
                 $controller = new filmController();
                 $controller->showFilmsByDirector($params[1]); // Usar el segundo parámetro como el ID del director
@@ -64,15 +64,16 @@ switch ($params[0]) {
             }
             break;
         case 'agregarDirector':
+            sessionAuthMiddleware($res);
+
             $controller = new directorController();
             $controller->addDirector();
             break;
         case 'eliminarDirector':
+            sessionAuthMiddleware($res);
             if (isset($params[1])) {
                 $controller = new directorController();
                 $controller->deleteDirector($params[1]);
-            } else {
-                //falta controlar error
             }
             break;
     default:
