@@ -24,5 +24,12 @@ class FilmView
         require 'templates/home.phtml';
     }
 
+    public function showFilmsByDirector($peliculas, $director) {
+        include_once 'templates/films.by.director.phtml';
+    }
+
+    function showError($error) {
+        echo "<h2>Error: $error</h2>";
+    }
 
 }
