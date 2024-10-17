@@ -11,9 +11,13 @@
 
     <h1>Agregar Director</h1>
 
-    <form action="agregarDirector" method="POST">
+    <form action="agregarDirector" method="POST" enctype="multipart/form-data">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" required><br><br>
+
+        <h2>Subir Imagen del Director</h2>
+        <label for="imageToUpload">Selecciona una imagen:</label>
+        <input type="file" name="imagen" id="imageToUpload" required><br><br>
 
         <input type="submit" value="Agregar Director">
     </form>

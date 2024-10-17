@@ -5,19 +5,23 @@
 
         public function showDirectors($directores) {
             require_once 'templates/form.add.director.phtml';
-            echo "<h1> Lista de directores </h1>";
+            echo "<h1>Lista de directores</h1>";
             echo "<ul>";
-
+        
             foreach ($directores as $director) {
                 echo "<li>";
                 echo $director->nombre;
+                if (!empty($director->imagen)) {
+                    echo "<img src='" . $director->imagen . "' alt='Imagen de " . $director->nombre . "'>"; // Muestra la imagen
+                }
                 echo "<a href='verPeliculasDirector/". $director->id . "'>Ver películas</a>";
                 echo "<a href='eliminarDirector/" . $director->id . "'>Borrar</a>";
                 echo "</li>";
             }
-            
+        
             echo "</ul>";
         }
+        
 
         public function showError($error) {
             require 'templates/error.phtml';
