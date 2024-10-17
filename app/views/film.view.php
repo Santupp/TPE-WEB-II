@@ -6,8 +6,11 @@ class FilmView
 
     public function showFilms($films)
     {
-
         require 'templates/films.phtml';
+    }
+    public function showFilm($film)
+    {
+        require 'templates/film.phtml';
     }
 
     public function showGenres($genres)

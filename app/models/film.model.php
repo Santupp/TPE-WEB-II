@@ -10,6 +10,13 @@ class FilmModel extends ConfigModel
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+    public function getFilm($id)
+    {
+        $query = $this->db->prepare('SELECT * FROM peliculas WHERE id = ?');
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_OBJ);
+
+    }
     public function addFilm($nombre, $estreno, $genero) {
         $sql = "INSERT INTO peliculas (nombre, fecha_estreno, genero) VALUES (null ,?, ?, ?, null, null)";
         $stmt = $this->db->prepare($sql);
@@ -33,10 +40,10 @@ class FilmModel extends ConfigModel
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    function getDirectorById($directorID) {
-        $query = $this->db->prepare('SELECT * FROM directores WHERE id = ?');
+    function getDirectorNameById($directorID) {
+        $query = $this->db->prepare('SELECT nombre FROM directores WHERE id = ?');
         $query->execute([$directorID]);
-        return $query->fetch(PDO::FETCH_OBJ);
+        return $query->fetch(PDO::FETCH_OBJ)->nombre;
     }
 
 }

@@ -45,6 +45,9 @@ class FilmController
     public function showFilm($id)
     {
         $film = $this->model->getFilm($id);
+        if ($film) {
+            $film->director_name = $this->model->getDirectorNameById($film->id_director);
+        }
         $this->view->showFilm($film);
     }
     public function showGenres()

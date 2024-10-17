@@ -45,37 +45,41 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->logout();
         break;
+    case 'pelicula':
+        if (isset($params[1])) {
+            $controller = new FilmController();
+            $controller->showFilm($params[1]);
+        }
+        break;
     case 'agregarPelicula':
         sessionAuthMiddleware($res);
         $controller = new FilmController();
         $controller->addFilms();
         break;
-        case 'verDirectores':
-            $controller = new directorController();
-            $controller->showDirectors();
-            break;
-        case 'verPeliculasDirector':
-            sessionAuthMiddleware($res);
-            if (isset($params[1])) {
-                $controller = new filmController();
-                $controller->showFilmsByDirector($params[1]); // Usar el segundo parámetro como el ID del director
-            } else {
-                //falta controlar error
-            }
-            break;
-        case 'agregarDirector':
-            sessionAuthMiddleware($res);
+    case 'verDirectores':
+        $controller = new directorController();
+        $controller->showDirectors();
+        break;
+    case 'verPeliculasDirector':
+        sessionAuthMiddleware($res);
+        if (isset($params[1])) {
+            $controller = new filmController();
+            $controller->showFilmsByDirector($params[1]); // Usar el segundo parámetro como el ID del director
+        }
+        break;
+    case 'agregarDirector':
+        sessionAuthMiddleware($res);
 
+        $controller = new directorController();
+        $controller->addDirector();
+        break;
+    case 'eliminarDirector':
+        sessionAuthMiddleware($res);
+        if (isset($params[1])) {
             $controller = new directorController();
-            $controller->addDirector();
-            break;
-        case 'eliminarDirector':
-            sessionAuthMiddleware($res);
-            if (isset($params[1])) {
-                $controller = new directorController();
-                $controller->deleteDirector($params[1]);
-            }
-            break;
+            $controller->deleteDirector($params[1]);
+        }
+        break;
     default:
         echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto
         break;
