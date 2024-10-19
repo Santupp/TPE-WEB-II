@@ -17,33 +17,37 @@ class FilmModel extends ConfigModel
         return $query->fetch(PDO::FETCH_OBJ);
 
     }
-    public function addFilm($nombre, $estreno, $genero) {
+    public function addFilm($nombre, $estreno, $genero, $id_director, $descripcion) {
 
         $filePath = "images/" . uniqid("", true) . "." . strtolower(pathinfo($_FILES['input_name']['name'], PATHINFO_EXTENSION));
         move_uploaded_file($_FILES['input_name']['tmp_name'], $filePath);
 
-        $query = $this->db->prepare('INSERT INTO peliculas (nombre, fecha_estreno, genero, imagen) VALUES (?, ?, ?, ?)');
-        $query->execute([$nombre, $estreno, $genero ,$filePath]);
+        $query = $this->db->prepare('INSERT INTO peliculas (nombre, fecha_estreno, genero, id_director, descripcion, imagen) VALUES (?, ?, ?, ?,?, ?)');
+        $query->execute([$nombre, $estreno, $genero,$id_director ,$descripcion, $filePath]);
 
-        $id = $this->db->lastInsertId();
-        return $id;
+        return $this->db->lastInsertId();
     }
 
-    function getFilmsByDirector($directorID) {
+    public function getFilmsByDirector($directorID) {
         $query = $this->db->prepare('SELECT * FROM peliculas WHERE id_director = ?');
         $query->execute([$directorID]);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    function getDirectorNameById($directorID) {
+    public function getDirectorNameById($directorID) {
         $query = $this->db->prepare('SELECT nombre FROM directores WHERE id = ?');
         $query->execute([$directorID]);
         return $query->fetch(PDO::FETCH_OBJ)->nombre;
     }
-    function getDirectorById($directorID) {
+    public function getDirectorById($directorID) {
         $query = $this->db->prepare('SELECT * FROM directores WHERE id = ?');
         $query->execute([$directorID]);
         return $query->fetch(PDO::FETCH_OBJ);
+    }
+    public function getDirectors() {
+        $query = $this->db->prepare('SELECT * FROM directores');
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
 }

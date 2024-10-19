@@ -1,14 +1,11 @@
-document.querySelector('form').
-addEventListener('submit', function(event)
-{
-    event.preventDefault();
+document.getElementById("toggleDescriptionBtn").addEventListener("click", function() {
+    const description = document.getElementById("descriptionContent");
 
-    const nombre = document.getElementById('nombre').value;
-    const estreno = document.getElementById('estreno').value;
-    const genero = document.getElementById('genero').value;
-    if (!nombre || !estreno || !genero)
-    {
-        alert('Todos los campos son obligatorios.');
+    if (description.style.maxHeight) {
+        description.style.maxHeight = null;
+        this.textContent = "Ver Descripción";
+    } else {
+        description.style.maxHeight = description.scrollHeight + "px";
+        this.textContent = "Ocultar Descripción";
     }
-}
-);
+});

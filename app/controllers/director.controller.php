@@ -12,9 +12,9 @@
             $this->view = new directorView();
         }
 
-        function showDirectors() {
-            $directores = $this->model->getDirectors();
-            $this->view->showDirectors($directores);
+        public function showDirectors() {
+            $directors = $this->model->getDirectors();
+            $this->view->showDirectors($directors);
         }
 
         public function addDirector() {

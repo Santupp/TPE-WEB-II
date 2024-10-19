@@ -18,12 +18,26 @@
     <label for="genero">Género:</label>
     <input type="text" name="genero" id="genero" required><br><br>
 
-    <label for="imageToUpload">Selecciona una imagen:</label>
-    <input type="file" name="input_name" id="imageToUpload" required>
 
+    <label for="director">Director:</label>
+    <select name="director" id="director" required>
+        <?php if (isset($directors) && is_array($directors)): ?>
+            <?php foreach ($directors as $director): ?>
+                <option value="<?= htmlspecialchars($director->id) ?>"><?= htmlspecialchars($director->nombre) ?></option>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <option value="">No directors available</option>
+        <?php endif; ?>
+
+    </select><br><br>
+    <label for="descripcion">Descripción:</label>
+    <textarea name="descripcion" id="descripcion" required></textarea><br><br>
+
+    <label class="custom-file-upload" for="imageToUpload">Selecciona una imagen</label>
+    <br><br>
+    <input  type="file" name="input_name" id="imageToUpload" required>
     <input type="submit" value="Agregar Película">
 </form>
-
 
 <?php if (isset($_GET['mensaje'])): ?>
     <p><?php echo htmlspecialchars($_GET['mensaje']); ?></p>
@@ -32,4 +46,3 @@
 <script src="../javascript/script.js"></script>
 </body>
 </html>
-

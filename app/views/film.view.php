@@ -13,19 +13,16 @@ class FilmView
         require 'templates/film.phtml';
     }
 
-    public function showGenres($genres)
-    {
-        require 'templates/genres.phtml';
+    public function showAddFilmForm($directors) {
+        require 'templates/addFilms.phtml';
     }
     public function addFilm()
     {
         require 'templates/addFilms.phtml';
     }
 
-    public function showHome()
-    {
-        require 'templates/home.phtml';
-    }
+
+
 
     public function showFilmsByDirector($peliculas, $director) {
         include_once 'templates/films.by.director.phtml';

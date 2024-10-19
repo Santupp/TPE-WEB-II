@@ -13,21 +13,12 @@
         }
     ?>
 </h1>
-<ul>
+<ul class="film-list-ul">
     <?php foreach($films as $film): ?>
-
         <li>
             <a href="pelicula/<?= $film->id ?>">
-                <?= $film->nombre ?>
+                <img src="<?= $film->imagen ?>" width="200" alt="<?= htmlspecialchars($film->nombre) ?>">
             </a>
-            <img src="<?= $film->imagen ?>" width="200" alt="">
         </li>
-
     <?php endforeach ?>
-    <?php
-    //    $password = 'admin'; // The plain text password
-    //    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-    //
-    //    echo $hashedPassword;
-    ?>
 </ul>

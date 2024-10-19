@@ -55,6 +55,7 @@ switch ($params[0]) {
         sessionAuthMiddleware($res);
         $controller = new FilmController();
         $controller->addFilms();
+
         break;
     case 'verDirectores':
         $controller = new directorController();

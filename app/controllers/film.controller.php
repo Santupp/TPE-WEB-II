@@ -19,18 +19,18 @@ class FilmController
     }
 
     public function addFilms() {
-        $view = new FilmView(); // Instancia de la vista
-        $view->addFilm(); // Llamar a la vista que contiene el formulario
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Procesar los datos del formulario
-            $nombre= $_POST['nombre'];
+            $nombre = $_POST['nombre'];
             $estreno = $_POST['estreno'];
             $genero = $_POST['genero'];
+            $descripcion = $_POST['descripcion'];
+            $director = $_POST['director'];
 
-            if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
-                $resultado = $this->model->addFilm($nombre, $estreno, $genero,  $_FILES['input_name']['tmp_name']);
+            if ($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
+                $resultado = $this->model->addFilm($nombre, $estreno, $genero, $director,$descripcion , $_FILES['input_name']['tmp_name']);
             } else {
-                $resultado = $this->model->addFilm($nombre, $estreno, $genero);
+                $resultado = $this->model->addFilm($nombre, $estreno, $genero, $director, $descripcion);
             }
 
             // Redirigir dependiendo del resultado
@@ -39,11 +39,15 @@ class FilmController
             } else {
                 header('Location: ' . BASE_URL . 'agregarPelicula?mensaje=Error al agregar la película');
             }
+        } else {
+            // Mostrar el formulario para agregar película
+            $this->showAddFilmForm();
         }
-
-
     }
-
+    public function showAddFilmForm() {
+        $directors = $this->model->getDirectors();
+        $this->view->showAddFilmForm($directors);
+    }
 
     public function showFilm($id)
     {
@@ -53,18 +57,8 @@ class FilmController
         }
         $this->view->showFilm($film);
     }
-    public function showGenres()
-    {
-        $genres = $this->model->getGenres();
-        $this->view->showGenres($genres);
-    }
-    public function showGenre($id)
-    {
-        $genre = $this->model->getGenre($id);
-        $this->view->showGenre($genre);
-    }
 
-    function showFilmsByDirector($directorID) {
+    public function showFilmsByDirector($directorID) {
         $director = $this->model->getDirectorById($directorID);
         if (!$director) {
             $this->view->showError("Director no es valido.");
