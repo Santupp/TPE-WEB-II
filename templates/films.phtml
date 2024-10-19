@@ -15,9 +15,12 @@
 </h1>
 <ul class="film-list-ul">
     <?php foreach($films as $film): ?>
-        <li>
+        <li class="film-name-box">
             <a href="pelicula/<?= $film->id ?>">
                 <img src="<?= $film->imagen ?>" width="200" alt="<?= htmlspecialchars($film->nombre) ?>">
+            </a>
+            <a href="pelicula/<?= $film->id ?>">
+                <h2><?= htmlspecialchars($film->nombre) ?></h2>
             </a>
         </li>
     <?php endforeach ?>
