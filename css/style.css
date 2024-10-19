@@ -227,18 +227,19 @@ input[type="password"]:-webkit-autofill {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid #F2F1E8;
+    border-top: 1px solid #F2F1E8;
+
     padding: 1em 0;
     margin: 0 6em;  /* Centers the image horizontally */
 
 }
-.film-box h1{
+ .film-h1{
     font-size: 3em;
     font-weight: 400;
     font-family: "Bebas Neue", sans-serif;
     text-transform: uppercase;
-
+    justify-self: center;
     padding: 0;
-    align-self: center;
 }
 .film-container{
     display: flex;
@@ -303,8 +304,10 @@ input[type="password"]:-webkit-autofill {
 table{
     width: 100%;
     border-collapse: collapse;
-
     animation: border-animation 0.8s ease-in-out;
+}
+table tr:last-child {
+    border-bottom: none;
 }
 tr{
     border-bottom: 1px solid #F2F1E8;
