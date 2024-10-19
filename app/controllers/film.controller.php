@@ -48,7 +48,7 @@ class FilmController
     public function showFilm($id)
     {
         $film = $this->model->getFilm($id);
-        if ($film) {
+        if ($film) {    
             $film->director_name = $this->model->getDirectorNameById($film->id_director);
         }
         $this->view->showFilm($film);
@@ -65,12 +65,16 @@ class FilmController
     }
 
     function showFilmsByDirector($directorID) {
-        $director = $this->model->getDirectorNameById($directorID);
+        $director = $this->model->getDirectorById($directorID);
         if (!$director) {
             $this->view->showError("Director no es valido.");
             return;
         }
         $peliculas = $this->model->getFilmsByDirector($directorID);
         $this->view->showFilmsByDirector($peliculas, $director);
+    }
+
+    public function editarDirector($directorID) {
+        
     }
 }

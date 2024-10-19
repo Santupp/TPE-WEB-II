@@ -40,5 +40,10 @@ class FilmModel extends ConfigModel
         $query->execute([$directorID]);
         return $query->fetch(PDO::FETCH_OBJ)->nombre;
     }
+    function getDirectorById($directorID) {
+        $query = $this->db->prepare('SELECT * FROM directores WHERE id = ?');
+        $query->execute([$directorID]);
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
 
 }

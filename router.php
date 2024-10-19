@@ -79,6 +79,13 @@ switch ($params[0]) {
             $controller->deleteDirector($params[1]);
         }
         break;
+        case 'editarNombreDirector':
+            sessionAuthMiddleware($res);
+            if (isset($params[1])) {
+                $controller = new directorController();
+                $controller->updateDirectorName($params[1]);
+            }
+            break;
     default:
         echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto
         break;
