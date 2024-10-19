@@ -11,11 +11,9 @@
             foreach ($directores as $director) {
                 echo "<li>";
                 echo $director->nombre;
-                if (!empty($director->imagen)) {
-                    echo "<img src='" . $director->imagen . "' alt='Imagen de " . $director->nombre . "'>"; // Muestra la imagen
-                }
                 echo "<a href='verPeliculasDirector/". $director->id . "'>Ver películas</a>";
                 echo "<a href='eliminarDirector/" . $director->id . "'>Borrar</a>";
+                echo "<img src='{$director->imagen}' width='200'>";
                 echo "</li>";
             }
         

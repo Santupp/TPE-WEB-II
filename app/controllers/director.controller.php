@@ -23,11 +23,9 @@
             }
             $nombre = $_POST['nombre'];;
             
-            if ($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png") {
-                //si la imagen es valida llama al metodo para guardar la ruta temporal de la imagen junto al director
-                $id = $this->model->insertDirector($nombre, $_FILES['imagen']['tmp_name']);
-            }
-            else {
+            if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
+                $id = $this->model->insertDirector($nombre,  $_FILES['input_name']['tmp_name']);
+            } else {
                 $id = $this->model->insertDirector($nombre);
             }
 

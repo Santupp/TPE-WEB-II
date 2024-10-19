@@ -18,20 +18,15 @@ class FilmModel extends ConfigModel
 
     }
     public function addFilm($nombre, $estreno, $genero) {
-        $sql = "INSERT INTO peliculas (nombre, fecha_estreno, genero) VALUES (null ,?, ?, ?, null, null)";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(1, $nombre);
-        $stmt->bindParam(2, $estreno);
-        $stmt->bindParam(3, $genero);
 
-        if ($stmt->execute()) {
-            echo "hi";
+        $filePath = "images/" . uniqid("", true) . "." . strtolower(pathinfo($_FILES['input_name']['name'], PATHINFO_EXTENSION));
+        move_uploaded_file($_FILES['input_name']['tmp_name'], $filePath);
 
-            return true;
-        } else {
-            echo "hi";
-            return false;
-        }
+        $query = $this->db->prepare('INSERT INTO peliculas (nombre, fecha_estreno, genero, imagen) VALUES (?, ?, ?, ?)');
+        $query->execute([$nombre, $estreno, $genero ,$filePath]);
+
+        $id = $this->db->lastInsertId();
+        return $id;
     }
 
     function getFilmsByDirector($directorID) {

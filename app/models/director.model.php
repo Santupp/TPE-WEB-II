@@ -15,35 +15,20 @@ class directorModel
     }
 
 
-    public function insertDirector($nombre, $fileTemp = null) {
+    public function insertDirector($nombre) {
 
-        $rutaImagen = null;
+        $filePath = "images/" . uniqid("", true) . "." . strtolower(pathinfo($_FILES['input_name']['name'], PATHINFO_EXTENSION));
 
-        if ($fileTemp) {
-            $nombreArchivo = basename($_FILES['imagen']['name']);
-            $rutaImagen = 'images/' . $nombreArchivo;
-        }
+        move_uploaded_file($_FILES['input_name']['tmp_name'], $filePath);
 
         $query = $this->db->prepare('INSERT INTO directores (nombre, imagen) VALUES (?, ?)');
-        $query->execute([$nombre, $rutaImagen]);
+        $query->execute([$nombre, $filePath]);
 
         $id = $this->db->lastInsertId();
 
         return $id;
     }
-
-    public function moverImagen($fileTemp, $nombreArchivo) {
-
-        $rutaDestino = 'images/' . $nombreArchivo;
-
-        if (move_uploaded_file($fileTemp, $rutaDestino)) {   //Mueve el archivo temporal a la ruta destino
-            return $rutaDestino;   //Retorna la ruta donde se guardó la imagen
-        } else {
-
-        }
-    }
     
-
     public function deleteDirector($id) {
         $query = $this->db->prepare('DELETE FROM directores WHERE id = ?');
         $query->execute([$id]);

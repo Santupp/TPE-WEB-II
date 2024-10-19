@@ -27,8 +27,11 @@ class FilmController
             $estreno = $_POST['estreno'];
             $genero = $_POST['genero'];
 
-            // Intentar agregar la película a la base de datos
-            $resultado = $this->model->addFilm($nombre, $estreno, $genero);
+            if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
+                $resultado = $this->model->addFilm($nombre, $estreno, $genero,  $_FILES['input_name']['tmp_name']);
+            } else {
+                $resultado = $this->model->addFilm($nombre, $estreno, $genero);
+            }
 
             // Redirigir dependiendo del resultado
             if ($resultado) {

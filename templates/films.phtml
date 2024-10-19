@@ -5,31 +5,29 @@
 
 <h1>
     <?php
-        if (isset($_SESSION['USERNAME_USER'])&& !empty (($_SESSION['USERNAME_USER']))) {
+        if (isset($_SESSION['USERNAME_USER']) && !empty($_SESSION['USERNAME_USER'])) {
             echo 'Bienvenido ' . $_SESSION['USERNAME_USER'];
         }
-        elseif (isset($_SESSION['EMAIL_USER']) && !empty (($_SESSION['EMAIL_USER']))) {
-
+        elseif (isset($_SESSION['EMAIL_USER']) && !empty($_SESSION['EMAIL_USER'])) {
             echo 'Bienvenido ' . $_SESSION['EMAIL_USER'];
         }
-
-
     ?>
 </h1>
 <ul>
     <?php foreach($films as $film): ?>
 
         <li>
-            <a href="pelicula/<?= $film -> id ?>">
-                <?=  $film -> nombre ?>
+            <a href="pelicula/<?= $film->id ?>">
+                <?= $film->nombre ?>
             </a>
-
+            <img src="<?= $film->imagen ?>" width="200">
+        </li>
 
     <?php endforeach ?>
     <?php
-//    $password = 'admin'; // The plain text password
-//    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-//
-//    echo $hashedPassword;
+    //    $password = 'admin'; // The plain text password
+    //    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    //
+    //    echo $hashedPassword;
     ?>
 </ul>
