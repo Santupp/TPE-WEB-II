@@ -54,7 +54,7 @@ nav ul {
 nav ul li {
     margin: 0 10px;
 }
-nav ul li a {
+a {
     font-family: "Rufina", sans-serif;
 
     text-decoration: none;
@@ -64,10 +64,10 @@ nav ul li a {
     position: relative;
 
 }
-nav ul li a:hover {
+a:hover {
     color: #828281;
 }
-nav ul li a::after {
+a::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -77,7 +77,7 @@ nav ul li a::after {
     background-color: #F2F1E8;
     transition: width 0.3s ease-in-out;
 }
-nav ul li a:hover::after {
+a:hover::after {
     width: 100%;
 }
 .title:hover {
@@ -150,4 +150,50 @@ input[type="password"]:-webkit-autofill {
     padding: 1px 10px;
     margin: 0.5em 0;
 
+}
+
+/* Style for individual film */
+.film-box{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #F2F1E8;
+    padding: 1em 0;
+    margin: 0 6em;  /* Centers the image horizontally */
+
+}
+.film-container{
+    display: flex;
+}
+.film-photo{
+    max-width: 500px;  /* Limits the width of the image */
+}
+.film-photo img{
+    width: 100%;  /* Make the image take up the full width of the container */
+    height: auto;  /* Maintains the aspect ratio of the image */
+    border-radius: 2px;  /* Adds rounded corners for a smoother look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Adds a slight shadow for depth */
+}
+.film-details{
+    /* justify  */
+    display: flex;
+
+    font-size: 2em;
+    font-weight: 400;
+    font-family: "Source Sans 3", sans-serif;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+
+    animation: border-animation 0.8s ease-in-out;
+}
+tr{
+    border-bottom: 1px solid #F2F1E8;
+    margin: 0;
+
+}
+th, td{
+    padding: 0 0.5em;
+
+    text-align: left;
 }

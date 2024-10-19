@@ -73,8 +73,4 @@ class FilmController
         $peliculas = $this->model->getFilmsByDirector($directorID);
         $this->view->showFilmsByDirector($peliculas, $director);
     }
-
-    public function editarDirector($directorID) {
-        
-    }
 }

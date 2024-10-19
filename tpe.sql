@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2024 a las 13:23:26
+-- Tiempo de generación: 19-10-2024 a las 16:59:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -57,8 +57,12 @@ CREATE TABLE `directores` (
 --
 
 INSERT INTO `directores` (`id`, `nombre`, `imagen`) VALUES
-(4, 'Christopher Nolan', ''),
-(7, 'adad', '');
+(4, 'Chistopher Nolan  nombre', ''),
+(7, 'adad', ''),
+(15, 'YORICK EL DEL LOL', 'images/67130e05269f34.12699364.png'),
+(16, 'Martin', 'images/67130e1616e9f0.14269733.jpg'),
+(18, 'ASADFGDHJKF', 'images/6713b095afd2d7.13183298.png'),
+(19, 'afafa', 'images/6713b7a4acdfb0.10425970.png');
 
 -- --------------------------------------------------------
 
@@ -71,6 +75,8 @@ CREATE TABLE `peliculas` (
   `nombre` varchar(255) NOT NULL,
   `fecha_estreno` date DEFAULT NULL,
   `genero` varchar(255) DEFAULT NULL,
+  `descripcion` text NOT NULL,
+  `imagen` varchar(50) NOT NULL,
   `id_director` int(11) DEFAULT NULL,
   `id_categoria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -79,9 +85,11 @@ CREATE TABLE `peliculas` (
 -- Volcado de datos para la tabla `peliculas`
 --
 
-INSERT INTO `peliculas` (`id`, `nombre`, `fecha_estreno`, `genero`, `id_director`, `id_categoria`) VALUES
-(5, 'Interstellar', '2014-11-06', 'SCI-FI', 4, 3),
-(6, 'el señor de los anillos', '2024-10-02', 'sci-fi', NULL, NULL);
+INSERT INTO `peliculas` (`id`, `nombre`, `fecha_estreno`, `genero`, `descripcion`, `imagen`, `id_director`, `id_categoria`) VALUES
+(5, 'Interstellar', '2014-11-06', 'SCI-FI', '', '', 4, 3),
+(6, 'el señor de los anillos', '2024-10-02', 'sci-fi', '', '', NULL, NULL),
+(13, 'pruebaFotoDirector5', '0000-00-00', 'hola', '', 'images/67130df80d94e5.84440263.png', NULL, NULL),
+(14, 'prueba6', '1212-12-12', 'hola', '', 'images/67130e36317e27.13445923.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -150,13 +158,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `directores`
 --
 ALTER TABLE `directores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

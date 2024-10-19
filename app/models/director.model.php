@@ -16,17 +16,25 @@ class directorModel
 
 
     public function insertDirector($nombre) {
+        // Define the upload directory
+        $uploadDir = 'images/';
 
-        $filePath = "images/" . uniqid("", true) . "." . strtolower(pathinfo($_FILES['input_name']['name'], PATHINFO_EXTENSION));
+        // Ensure the directory exists
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
 
+        // Generate a unique file name
+        $filePath = $uploadDir . uniqid("", true) . "." . strtolower(pathinfo($_FILES['input_name']['name'], PATHINFO_EXTENSION));
+
+        // Move the uploaded file to the upload directory
         move_uploaded_file($_FILES['input_name']['tmp_name'], $filePath);
 
+        // Insert the director with the file path into the database
         $query = $this->db->prepare('INSERT INTO directores (nombre, imagen) VALUES (?, ?)');
         $query->execute([$nombre, $filePath]);
 
-        $id = $this->db->lastInsertId();
-
-        return $id;
+        return $this->db->lastInsertId();
     }
     
     public function deleteDirector($id) {
@@ -38,9 +46,7 @@ class directorModel
         $query = $this->db->prepare('SELECT * FROM directores WHERE id = ?');
         $query->execute([$id]);
 
-        $task = $query->fetch(PDO::FETCH_OBJ);
-
-        return $task;
+        return $query->fetch(PDO::FETCH_OBJ);
     }
 
     public function updateDirectorName($directorId, $nombre) {

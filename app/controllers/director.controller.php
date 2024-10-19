@@ -24,9 +24,9 @@
             $nombre = $_POST['nombre'];
             
             if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
-                $id = $this->model->insertDirector($nombre,  $_FILES['input_name']['tmp_name']);
+                $this->model->insertDirector($nombre,  $_FILES['input_name']['tmp_name']);
             } else {
-                $id = $this->model->insertDirector($nombre);
+                $this->model->insertDirector($nombre);
             }
 
             header('Location: ' . BASE_URL . 'verDirectores');
