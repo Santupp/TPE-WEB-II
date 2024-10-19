@@ -32,6 +32,10 @@
             <th>Año</th>
             <td><?= htmlspecialchars($film->fecha_estreno) ?></td>
         </tr>
+        <tr>
+            <th>Imagen</th>
+            <td> <img src="<?= htmlspecialchars($film->imagen) ?>" width="200"> </td>
+        </tr>
     </table>
 <?php else: ?>
     <p>No se encontraron detalles de la película.</p>
