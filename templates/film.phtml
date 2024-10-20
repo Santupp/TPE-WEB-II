@@ -32,7 +32,11 @@
                     </tr>
                     <tr>
                         <th>Director</th>
-                        <td><?= htmlspecialchars($film->director_name) ?></td>
+                        <td>
+                            <a class="a-animation" href="<?= BASE_URL . '/verPeliculasDirector/' . htmlspecialchars($film->id_director) ?>">
+                                <?= htmlspecialchars($film->director_nombre) ?>
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <th>Año</th>

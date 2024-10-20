@@ -11,7 +11,7 @@
             foreach ($directores as $director) {
                 echo "<li>";
                 echo $director->nombre;
-                if (isset($_SESSION['USER'])) {
+                if (isset($_SESSION['ID_USER'])) {
                     echo "<a href='verPeliculasDirector/" . $director->id . "' class='a-animation'>Ver películas</a>";
                     echo "<a href='eliminarDirector/" . $director->id . "' class='a-animation'>Borrar</a>";
                 }

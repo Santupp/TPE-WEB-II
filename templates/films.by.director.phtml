@@ -20,14 +20,19 @@ require_once 'templates/layout/header.phtml'
             </li>
         <?php endforeach; ?>
     </ul>
-    <h1>Editar Director</h1>
-    <form action="editarNombreDirector/<?php echo $director->id; ?>" method="POST">
+    <?php if (isset($_SESSION['ID_USER'])): ?>
+        <h1>Editar Director</h1>
+
+        <form action="editarNombreDirector/<?php echo $director->id; ?>" method="POST">
 
         <label for="nombre">Editar nombre:</label>
         <input type="text" id="nombre" name="nombre">
-        
+
         <button type="submit">Actualizar nombre</button>
-</form>
+    </form>
+    <?php endif; ?>
+
+
 
 </body>
 </html>
