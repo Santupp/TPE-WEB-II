@@ -322,7 +322,11 @@ table tr:last-child {
 tr{
     border-bottom: 1px solid #F2F1E8;
     margin: 0;
+    font-family: "Rufina", sans-serif;
 
+}
+th{
+    font-family: "DM Serif Display", sans-serif;
 }
 th, td{
     padding: 0 0.5em;
@@ -350,13 +354,13 @@ textarea{
 label{
     font-size: 1.5em;
     font-weight: 400;
-    font-family: "Source Sans 3", sans-serif;
+    font-family: "DM Serif Display", sans-serif;
     color: #F2F1E8;
 }
 input{
     font-size: 1.5em;
     font-weight: 400;
-    font-family: "Source Sans 3", sans-serif;
+    font-family: "DM Serif Display", sans-serif;
     color: #F2F1E8;
     border-radius: 10px;
     padding: 1px 10px;
