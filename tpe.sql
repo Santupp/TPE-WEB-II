@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2024 a las 01:20:46
+-- Tiempo de generación: 21-10-2024 a las 03:06:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -91,7 +91,8 @@ INSERT INTO `peliculas` (`id`, `nombre`, `fecha_estreno`, `genero`, `descripcion
 (26, 'Pulp Fiction', '1995-02-16', 'Crimen', 'Pulp Fiction es una película estadounidense de 1994, escrita y dirigida por Quentin Tarantino. La película cuenta la historia de dos asesinos a sueldo, Vincent Vega (John Travolta) y Jules Winnfield (Samuel L. Jackson), que trabajan para el gángster Marsellus Wallace (Ving Rhames).', 'images/67154038c7d176.69856419.jpg', 26, NULL),
 (27, 'Whiplash', '2015-01-22', 'Drama', 'Whiplash es una película dramático-musical estadounidense de 2014 que narra la historia de Andrew Neiman, un joven baterista de jazz que aspira a ser el mejor y entrar en la orquesta de élite de su escuela de música', 'images/671540e98f2a60.20214865.jpg', 27, NULL),
 (28, 'Django desencadenado', '2013-01-31', 'Drama', 'Django desencadenado es una película estadounidense de 2012 que cuenta la historia de un esclavo liberado que se alía con un cazarrecompensas para vengar sus afrentas y liberar a su esposa:', 'images/671541b08e3402.43164334.jpg', 26, NULL),
-(29, 'Érase una vez en… Hollywood', '2019-08-22', 'Comedia', 'Érase una vez en... Hollywood es una película estadounidense de 2019, escrita y dirigida por Quentin Tarantino, que cuenta la historia de un actor de televisión y su doble en los años 60, en un Hollywood que está cambiando.', 'images/67154216c8e6b9.20012915.jpg', 26, NULL);
+(29, 'Érase una vez en… Hollywood', '2019-08-22', 'Comedia', 'Érase una vez en... Hollywood es una película estadounidense de 2019, escrita y dirigida por Quentin Tarantino, que cuenta la historia de un actor de televisión y su doble en los años 60, en un Hollywood que está cambiando.', 'images/67154216c8e6b9.20012915.jpg', 26, NULL),
+(33, 'El Padrino 2', '1974-01-26', 'Crimen', 'Tras la muerte de Don Vito Corleone, su hijo Michael es elegido para liderar los negocios familiares.', 'images/6715a76688ceb5.25378058.jpg', 24, NULL);
 
 -- --------------------------------------------------------
 
@@ -160,13 +161,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `directores`
 --
 ALTER TABLE `directores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
