@@ -22,7 +22,7 @@ require_once 'templates/layout/header.phtml'
     </ul>
     <?php if (isset($_SESSION['ID_USER'])): ?>
 
-        <form action="editarNombreDirector/<?php echo $director->id; ?>" method="POST">
+        <form action="editarDirector/<?php echo $director->id; ?>" method="POST">
         <h1 class="form-h1">Editar Director</h1>
 
         <label for="nombre">Editar nombre:</label>
