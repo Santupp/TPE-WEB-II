@@ -55,8 +55,21 @@ switch ($params[0]) {
         sessionAuthMiddleware($res);
         $controller = new FilmController();
         $controller->addFilms();
-
         break;
+        case 'eliminarPelicula':
+            sessionAuthMiddleware($res);
+            if (isset($params[1])) {
+                $controller = new FilmController();
+                $controller->deleteFilm($params[1]);
+            }
+            break;
+            case 'editarPelicula':
+                sessionAuthMiddleware($res);
+                if (isset($params[1])) {
+                    $controller = new FilmController();
+                    $controller->updateFilm($params[1]);
+                }
+                break;
     case 'verDirectores':
         $controller = new directorController();
         $controller->showDirectors();
@@ -80,11 +93,11 @@ switch ($params[0]) {
             $controller->deleteDirector($params[1]);
         }
         break;
-        case 'editarNombreDirector':
+        case 'editarDirector':
             sessionAuthMiddleware($res);
             if (isset($params[1])) {
                 $controller = new directorController();
-                $controller->updateDirectorName($params[1]);
+                $controller->updateDirector($params[1]);
             }
             break;
     default:

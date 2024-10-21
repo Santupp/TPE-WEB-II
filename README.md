@@ -1,8 +1,8 @@
 # TPE WEB II
 ## Base de datos orientada a peliculas
 ### Integrantes:
-* Martín Lospinoso
-* Santino Monniello
+* Santino Monniello (A)
+* Martín Lospinoso (B)
 
 ### Descripción del proyecto:
 Base de datos orientada a peliculas, el objetivo de este proyecto es una aplicación que nos permita ver la información de las películas de interés, brindándonos información acerca del director, la fecha de estreno y género.

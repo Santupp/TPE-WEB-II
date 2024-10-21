@@ -29,12 +29,15 @@ if (session_status() == PHP_SESSION_NONE) {
             <a href="" class="a-animation title">Filmpedia </a>
         </h1>
         <ul>
+            <li>
+                <a href="<?= BASE_URL . '/peliculas' ?>" class="a-animation">Peliculas</a>
+            </li>
+            <li>
+                <a href="<?= BASE_URL . '/verDirectores' ?>" class="a-animation">Directores</a>
+            </li>
             <?php if (isset($_SESSION['ID_USER'])): ?>
                 <li>
                     <a href="agregarPelicula" class="a-animation">Crear</a>
-                </li>
-                <li>
-                    <a href="<?= BASE_URL . '/verDirectores' ?>" class="a-animation">Directores</a>
                 </li>
             <?php endif; ?>
             <?php if (isset($_SESSION['ID_USER'])): ?>
