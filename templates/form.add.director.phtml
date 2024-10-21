@@ -11,8 +11,9 @@
 
 
 <?php if (isset($_SESSION['ID_USER'])): ?>
-    <h1>Agregar Director</h1>
     <form action="agregarDirector" method="POST" enctype="multipart/form-data">
+        <h1 class="form-h1">Agregar Director</h1>
+
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" required><br><br>
         <h2>Imagen del director:</h2>

@@ -1,6 +1,7 @@
-<h1>Editar Película</h1>
 
 <form action="editarPelicula/<?= $film->id ?>" method="POST">
+    <h1 class="form-h1">Editar Película</h1>
+
     <label for="nombre">Editar nombre:</label>
     <input type="text" id="nombre" name="nombre" value="<?= htmlspecialchars($film->nombre) ?>" required>
 

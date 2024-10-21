@@ -393,3 +393,73 @@ h2{
     margin: 0;
     padding: 0;
 }
+
+/* Style for directors  */
+.ul-directors{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 4em;
+}
+.ul-directors a{
+    align-self: self-start; /* Prevents the animation from taking all the width of the list */
+}
+.ul-directors li{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0.5em;
+    padding: 0;
+}
+.ul-directors h2{
+    font-size: 1.2em;
+    font-weight: 400;
+    font-family: "DM Serif Display", sans-serif;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 22ch; /* Limit the title to 22 characters */
+}
+.ul-directors img{
+    width: 200px;
+    height: auto;
+    border-radius: 2px;
+
+}
+.img-box{
+    height: 300px;
+}
+.ul-h1{
+    font-size: 3em;
+    font-weight: 400;
+    font-family: "Bebas Neue", sans-serif;
+    text-transform: uppercase;
+    padding: 0;
+    justify-self: center;
+}
+
+/* Style for individual directors */
+.ul-individual-director{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #F2F1E8;
+    border-top: 1px solid #F2F1E8;
+    padding: 1em 0;
+    margin: 0 6em 4em;    /* Centers horizontally */
+
+}
+.ul-individual-director a{
+    font-size: 2em;
+    font-weight: 400;
+    font-family: "DM Serif Display", sans-serif;
+    color: #F2F1E8;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+.ul-individual-director li{
+    list-style: none;
+}

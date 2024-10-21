@@ -10,11 +10,11 @@ require_once 'templates/layout/header.phtml'
     <title>Películas de <?php echo htmlspecialchars($director->nombre); ?></title>
 </head>
 <body>
-    <h1>Películas de <?php echo htmlspecialchars($director->nombre); ?></h1>
-    <ul>
+    <h1 class="ul-h1">Películas de <?php echo htmlspecialchars($director->nombre); ?></h1>
+    <ul class="ul-individual-director">
         <?php foreach ($peliculas as $pelicula): ?>
             <li>
-                <h2><?php echo htmlspecialchars($pelicula->nombre); ?></h2>
+                <a class="a-animation" href="pelicula/<?php echo htmlspecialchars($pelicula->id); ?>"><?php echo htmlspecialchars($pelicula->nombre); ?></a>
                 <p>Fecha de estreno: <?php echo htmlspecialchars($pelicula->fecha_estreno); ?></p>
                 <p>Género: <?php echo htmlspecialchars($pelicula->genero); ?></p>
             </li>
