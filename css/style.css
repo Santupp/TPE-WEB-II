@@ -288,7 +288,6 @@ input[type="password"]:-webkit-autofill {
 
 #toggleDescriptionBtn {
     vertical-align: center;
-    margin-bottom: 12px;
     background-color: #777771; /* Green background */
     color: white;
     border: none;              /* Remove border */
