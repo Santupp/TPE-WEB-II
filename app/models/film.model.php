@@ -49,5 +49,12 @@ class FilmModel extends ConfigModel
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
-
+    public function deleteFilm($id) {
+        $query = $this->db->prepare('DELETE FROM peliculas WHERE id = ?');
+        $query->execute([$id]);
+    }
+    public function updateFilm($id, $nombre, $fechaEstreno, $genero, $descripcion, $idDirector) {
+        $query = $this->db->prepare('UPDATE peliculas SET nombre = ?, fecha_estreno = ?, genero = ?, descripcion = ?, id_director = ? WHERE id = ?');
+        $query->execute([$nombre, $fechaEstreno, $genero, $descripcion, $idDirector, $id]);
+    }
 }

@@ -9,9 +9,9 @@
 </head>
 <body>
 
-<h1>Agregar Director</h1>
 
 <?php if (isset($_SESSION['ID_USER'])): ?>
+    <h1>Agregar Director</h1>
     <form action="agregarDirector" method="POST" enctype="multipart/form-data">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" required><br><br>
@@ -24,6 +24,5 @@
 <?php else: ?>
     <p>Debes estar logueado para agregar un director.</p>
 <?php endif; ?>
-
 </body>
 </html>

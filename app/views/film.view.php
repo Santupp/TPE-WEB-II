@@ -8,7 +8,7 @@ class FilmView
     {
         require 'templates/films.phtml';
     }
-    public function showFilm($film)
+    public function showFilm($film, $directors)
     {
         require 'templates/film.phtml';
     }

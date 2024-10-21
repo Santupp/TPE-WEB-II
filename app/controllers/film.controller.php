@@ -55,7 +55,8 @@ class FilmController
         if ($film) {    
             $film->director_nombre = $this->model->getDirectorNameById($film->id_director);
         }
-        $this->view->showFilm($film);
+        $directors = $this->model->getDirectors();
+        $this->view->showFilm($film, $directors);
     }
 
     public function showFilmsByDirector($directorID) {
@@ -66,5 +67,28 @@ class FilmController
         }
         $peliculas = $this->model->getFilmsByDirector($directorID);
         $this->view->showFilmsByDirector($peliculas, $director);
+    }
+    public function deleteFilm($id) {
+        $film = $this->model->getFilm($id);
+            if (!$film) {
+                return $this->view->showError("No existe la pelicula con id= $id");
+            }
+            $this->model->deleteFilm($id);
+            header('Location: ' . BASE_URL . 'verDirectores');
+    }
+    public function updateFilm($id) {
+        if (isset($_POST['nombre']) && !empty($_POST['nombre']) &&
+            isset($_POST['fecha_estreno']) && !empty($_POST['fecha_estreno']) &&
+            isset($_POST['genero']) && !empty($_POST['genero']) &&
+            isset($_POST['descripcion']) && !empty($_POST['descripcion']) &&
+            isset($_POST['director']) && !empty($_POST['director'])) {
+                $nombre = $_POST['nombre'];
+                $fechaEstreno = $_POST['fecha_estreno'];
+                $genero = $_POST['genero'];
+                $descripcion = $_POST['descripcion'];
+                $idDirector = $_POST['director'];
+                $this->model->updateFilm($id, $nombre, $fechaEstreno, $genero, $descripcion, $idDirector);
+            }
+            header('Location: ' . BASE_URL . 'pelicula/' . $id);
     }
 }

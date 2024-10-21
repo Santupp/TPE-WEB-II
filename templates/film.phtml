@@ -39,7 +39,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Año</th>
+                        <th>Estreno</th>
                         <td><?= htmlspecialchars($film->fecha_estreno) ?></td>
                     </tr>
                     <tr class="tr-description">
@@ -59,6 +59,10 @@
         </div>
     </div>
 </div>
+<?php if (isset($_SESSION['ID_USER'])): ?>
+    <a href="eliminarPelicula/<?= $film->id ?>" class="a-animation">Borrar</a>
+    <?php require_once 'templates/form.edit.film.phtml' ?>
+<?php endif; ?>
 <script src="./javascript/script.js"></script>
 
 

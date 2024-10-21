@@ -2,14 +2,14 @@
     require_once 'app/models/director.model.php';
     require_once 'app/views/director.view.php';
 
-    class directorController {
+    class DirectorController {
 
         private $model;
         private $view;
 
         public function __construct() {
-            $this->model = new directorModel();
-            $this->view = new directorView();
+            $this->model = new DirectorModel();
+            $this->view = new DirectorView();
         }
 
         public function showDirectors() {
@@ -40,10 +40,10 @@
             $this->model->deleteDirector($id);
             header('Location: ' . BASE_URL . 'verDirectores');
         }
-        public function updateDirectorName($directorId) {
+        public function updateDirector($directorId) {
             if (isset($_POST['nombre']) || !empty($_POST['nombre'])) {
                 $nombre =  $_POST['nombre'];
-                $this->model->updateDirectorName($directorId, $nombre);
+                $this->model->updateDirector($directorId, $nombre);
             }
             header('Location: ' . BASE_URL . 'verPeliculasDirector/' . $directorId);
         }

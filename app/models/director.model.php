@@ -1,7 +1,7 @@
 <?php
 require_once 'app/controllers/director.controller.php';
 require_once 'app/views/director.view.php';
-class directorModel
+class DirectorModel
 {
     private $db;
     public function __construct() {
@@ -39,7 +39,7 @@ class directorModel
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    public function updateDirectorName($directorId, $nombre) {
+    public function updateDirector($directorId, $nombre) {
         $query = $this->db->prepare('UPDATE directores SET nombre = ? WHERE id = ?');
         $query->execute([$nombre, $directorId]);
     }
